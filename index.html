@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyF - Publicidad & Fotografía</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="imagenes/logo-header.png" alt="PyF Logo" onclick="switchModule('inicio')">
+            </div>
+            <nav class="nav" id="navMenu">
+                <ul>
+                    <li><button class="nav-link active" onclick="switchModule('inicio', this)">Inicio</button></li>
+                    <li><button class="nav-link" onclick="switchModule('nosotros', this)">Sobre nosotros</button></li>
+                    <li><button class="nav-link" onclick="switchModule('servicios', this)">Servicios</button></li>
+                    <li><button class="nav-link" onclick="switchModule('catalogo', this)">Catálogo</button></li>
+                    <li><button class="nav-link" onclick="switchModule('contacto', this)">Contacto</button></li>
+                    <li><button class="nav-link btn-login-nav" id="openLoginModalBtn"><i class="fas fa-user-lock"></i> Iniciar sesión</button></li>
+                </ul>
+            </nav>
+            <div class="header-cta-wrapper">
+                <a href="https://wa.me/50577889893" target="_blank" class="btn-whatsapp-header">
+                    <i class="fab fa-whatsapp"></i> Cotiza por WhatsApp
+                </a>
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <div id="adminBadge" class="admin-badge hidden">
+        <span><i class="fas fa-user-shield"></i> Panel de Administrador Activo (`fotos`)</span>
+        <button id="logoutBtn" class="btn-logout">Cerrar Sesión</button>
+    </div>
+
+    <main class="main-content">
+
+        <div id="mod-inicio" class="module-view">
+            <section class="hero">
+                <div class="hero-container">
+                    <h1>Imprimimos ideas, creamos resultados</h1>
+                    <p>Soluciones integrales en publicidad, fotografía e impresiones con calidad, rapidez y creatividad</p>
+                    <div class="hero-actions">
+                        <a href="https://wa.me/50577889893" target="_blank" class="btn btn-red"><i class="fab fa-whatsapp"></i> Cotiza por WhatsApp</a>
+                        <button class="btn btn-white" onclick="switchModule('catalogo')">Ver catálogo</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features-section">
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon-circle"><i class="fas fa-bolt"></i></div>
+                        <h4>Rápidos</h4>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-circle"><i class="fas fa-award"></i></div>
+                        <h4>Calidad</h4>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-circle"><i class="fas fa-palette"></i></div>
+                        <h4>Creativos</h4>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon-circle"><i class="fas fa-users"></i></div>
+                        <h4>Atención personalizada</h4>
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-products">
+                <div class="section-header">
+                    <h2>Productos Destacados</h2>
+                    <p>Conoce algunos de nuestros servicios más populares</p>
+                </div>
+                <div class="products-mini-grid">
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-id-card"></i></div>
+                        <h3>Tarjetas de presentación</h3>
+                        <span>Ver más →</span>
+                    </div>
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-tshirt"></i></div>
+                        <h3>Camisas personalizadas</h3>
+                        <span>Ver más →</span>
+                    </div>
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-mug-hot"></i></div>
+                        <h3>Tazas personalizadas</h3>
+                        <span>Ver más →</span>
+                    </div>
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-flag"></i></div>
+                        <h3>Banners</h3>
+                        <span>Ver más →</span>
+                    </div>
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-camera"></i></div>
+                        <h3>Fotografía</h3>
+                        <span>Ver más →</span>
+                    </div>
+                    <div class="prod-mini-card" onclick="switchModule('catalogo')">
+                        <div class="prod-mini-box"><i class="fas fa-print"></i></div>
+                        <h3>Stickers</h3>
+                        <span>Ver más →</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-banner">
+                <h3>¿Tienes un proyecto?</h3>
+                <p>Cotiza fácilmente por WhatsApp</p>
+                <a href="https://wa.me/50577889893" target="_blank" class="btn btn-red"><i class="fab fa-whatsapp"></i> Cotizar ahora</a>
+            </section>
+        </div>
+
+        <div id="mod-nosotros" class="module-view hidden">
+            <section class="standard-section">
+                <div class="section-header-center">
+                    <h2>Sobre Nosotros</h2>
+                    <p>Conoce nuestra historia y compromiso con la calidad</p>
+                </div>
+                <div class="about-main-grid">
+                    <div class="about-text-side">
+                        <h3>Nuestra Historia</h3>
+                        <p>PyF - Publicidad & Fotografía nació en 2016 como un emprendimiento informal, impulsado por la pasión de crear soluciones visuales y publicitarias de calidad para pequeños y medianos negocios.</p>
+                        <p>En 2021, nos formalizamos como empresa, consolidando nuestro compromiso con la excelencia y la innovación. Desde entonces, hemos crecido constantemente, ampliando nuestros servicios y tecnología para ofrecer las mejores soluciones del mercado.</p>
+                        <p>Hoy en día, somos reconocidos por nuestra rapidez, calidad y atención personalizada, trabajando con cientos de clientes satisfechos en toda la región.</p>
+                    </div>
+                    <div class="about-image-side">
+                        <div class="about-img-container">
+                            <img src="imagenes/local-publyfotos.webp" alt="PublyFotos Store">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mision-vision-grid">
+                    <div class="mv-card">
+                        <div class="mv-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Nuestra Misión</h3>
+                        <p>Proporcionar soluciones integrales de publicidad, fotografía e impresión de la más alta calidad, con entregas rápidas y atención personalizada que supere las expectativas de nuestros clientes, ayudándoles a destacar y crecer en sus mercados.</p>
+                    </div>
+                    <div class="mv-card">
+                        <div class="mv-icon"><i class="fas fa-eye"></i></div>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la empresa líder en soluciones publicitarias y fotográficas en la región, reconocida por nuestra innovación constante, excelencia en el servicio y por ser el socio estratégico de preferencia para empresas y emprendedores que buscan impactar visualmente en sus mercados.</p>
+                    </div>
+                </div>
+
+                <div class="blue-stats-bar">
+                    <h3>¿Por qué elegirnos?</h3>
+                    <div class="stats-counter-grid">
+                        <div class="stat-node">
+                            <strong>10+</strong>
+                            <span>Años de experiencia</span>
+                        </div>
+                        <div class="stat-node">
+                            <strong>500+</strong>
+                            <span>Clientes satisfechos</span>
+                        </div>
+                        <div class="stat-node">
+                            <strong>24h</strong>
+                            <span>Entregas rápidas</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="mod-servicios" class="module-view hidden">
+            <section class="standard-section">
+                <div class="section-header-center">
+                    <h2>Nuestros Servicios</h2>
+                    <p>Soluciones completas para todas tus necesidades de publicidad e impresión</p>
+                </div>
+                <div class="services-main-grid">
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-print"></i></div>
+                        <h3>Impresión Digital</h3>
+                        <p>Impresiones de alta calidad en diferentes formatos y materiales. Volantes, tarjetas, lonas, vinilos y mucho más.</p>
+                        <ul class="service-bullets">
+                            <li>Alta resolución</li>
+                            <li>Diversos materiales</li>
+                            <li>Acabados profesionales</li>
+                        </ul>
+                    </div>
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-camera"></i></div>
+                        <h3>Fotografía Profesional</h3>
+                        <p>Sesiones fotográficas para eventos, productos, corporativos y más. Capturamos los mejores momentos con equipo profesional.</p>
+                        <ul class="service-bullets">
+                            <li>Eventos sociales</li>
+                            <li>Fotografía de producto</li>
+                            <li>Retratos corporativos</li>
+                        </ul>
+                    </div>
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Diseño Gráfico</h3>
+                        <p>Creación de designs personalizados para tu marca. Logotipos, identidad corporativa, material publicitario y más.</p>
+                        <ul class="service-bullets">
+                            <li>Diseño de logotipos</li>
+                            <li>Identidad corporativa</li>
+                            <li>Material publicitario</li>
+                        </ul>
+                    </div>
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-tshirt"></i></div>
+                        <h3>Personalizados</h3>
+                        <p>Personalización de camisas, tazas, gorras, llaveros y más productos promocionales con tu design o marca.</p>
+                        <ul class="service-bullets">
+                            <li>Estampado textil</li>
+                            <li>Sublimación</li>
+                            <li>Bordado</li>
+                        </ul>
+                    </div>
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-box-open"></i></div>
+                        <h3>Gran Formato</h3>
+                        <p>Impresiones en gran formato para exteriores e interiores. Banners, lonas, vinilos adhesivos y displays.</p>
+                        <ul class="service-bullets">
+                            <li>Banners exteriores</li>
+                            <li>Vinilos adhesivos</li>
+                            <li>Displays para eventos</li>
+                        </ul>
+                    </div>
+                    <div class="service-box">
+                        <div class="service-box-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Entregas Rápidas</h3>
+                        <p>Servicio express disponible. Nos adaptamos a tus tiempos y urgencias sin comprometer la calidad.</p>
+                        <ul class="service-bullets">
+                            <li>Servicio express</li>
+                            <li>Entregas el mismo día</li>
+                            <li>Pedidos urgentes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="blue-cta-bar">
+                    <h3>Atención rápida y entregas en el menor tiempo posible</h3>
+                    <p>Contamos con la tecnología y experiencia necesaria para atender tus proyectos con la máxima calidad y en los tiempos que necesitas</p>
+                    <a href="https://wa.me/50577889893" target="_blank" class="btn btn-red"><i class="fab fa-whatsapp"></i> Cotiza por WhatsApp</a>
+                </div>
+            </section>
+        </div>
+
+        <div id="mod-catalogo" class="module-view hidden">
+            <section class="standard-section">
+                <div class="section-header-center">
+                    <h2>Catálogo de Productos</h2>
+                    <p>Explora nuestra amplia gama de productos y servicios</p>
+                </div>
+
+                <div id="adminPanel" class="admin-panel hidden">
+                    <h3 id="adminPanelTitle"><i class="fas fa-plus-circle"></i> Gestión de Inventario (Modo Administrador)</h3>
+                    <form id="productForm" class="admin-form">
+                        <input type="hidden" id="prodId">
+                        
+                        <div class="admin-form-group">
+                            <label for="prodTitle">Nombre del Producto:</label>
+                            <input type="text" id="prodTitle" placeholder="Ej: Tazas Cónicas" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="prodPrice">Precio Base (C$):</label>
+                            <input type="number" id="prodPrice" step="0.01" placeholder="Ej: 150" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="prodDiscount"><i class="fas fa-percentage"></i> Descuento Especial (%):</label>
+                            <input type="number" id="prodDiscount" min="0" max="100" placeholder="0 para ningún descuento" value="0">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="prodCategory">Categoría:</label>
+                            <select id="prodCategory" required>
+                                <option value="Papelería">Papelería</option>
+                                <option value="Personalizados">Personalizados</option>
+                                <option value="Gran formato">Gran formato</option>
+                                <option value="Fotografía">Fotografía</option>
+                                <option value="Promocionales">Promocionales</option>
+                            </select>
+                        </div>
+                        
+                        <div class="admin-form-group full-width">
+                            <label for="prodDescription">Descripción del producto:</label>
+                            <input type="text" id="prodDescription" placeholder="Detalles de materiales, tiempos de producción, etc." required>
+                        </div>
+
+                        <div class="admin-form-group full-width">
+                            <label for="prodImageUrl"><i class="far fa-image"></i> URL de la Imagen:</label>
+                            <input type="url" id="prodImageUrl" placeholder="https://tuservidor.com/imagen.jpg (Dejar vacío para usar icono automático)">
+                        </div>
+
+                        <div class="admin-form-actions">
+                            <button type="submit" id="btnAdminSubmit" class="btn-admin-submit">Guardar Producto</button>
+                            <button type="button" id="btnCancelEdit" class="btn-admin-cancel hidden" onclick="resetAdminForm()">Cancelar Edición</button>
+                        </div>
+                    </form>
+                    
+                    <hr class="admin-divider">
+                    
+                    <div class="admin-subscribers-section">
+                        <h3><i class="fas fa-envelope-open-text"></i> Lista de Consultas y Mensajes Recibidos (Módulo Contacto)</h3>
+                        <div class="table-actions">
+                            <button class="btn-clear-subs" onclick="clearDataList('pyf_subscribers')"><i class="fas fa-trash-sweep"></i> Vaciar Consultas</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Cliente / Tipo</th>
+                                        <th>Teléfono</th>
+                                        <th>Correo electrónico</th>
+                                        <th>Mensaje / Consulta</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="subscribersTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="admin-subscribers-section" style="margin-top: 2.5rem;">
+                        <h3><i class="fas fa-star"></i> Usuarios Suscritos a Promociones Exclusivas (Módulo Footer)</h3>
+                        <div class="table-actions">
+                            <button class="btn-clear-subs" onclick="clearDataList('pyf_promo_emails')"><i class="fas fa-trash-sweep"></i> Vaciar Lista de Promociones</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha de Registro</th>
+                                        <th>Correo Electrónico del Suscriptor</th>
+                                        <th>Estatus de Suscripción</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="promoEmailsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-wrapper">
+                    <button class="filter-tab active" data-filter="Todos">Todos</button>
+                    <button class="filter-tab" data-filter="Papelería">Papelería</button>
+                    <button class="filter-tab" data-filter="Personalizados">Personalizados</button>
+                    <button class="filter-tab" data-filter="Gran formato">Gran formato</button>
+                    <button class="filter-tab" data-filter="Fotografía">Fotografía</button>
+                    <button class="filter-tab" data-filter="Promocionales">Promocionales</button>
+                </div>
+                <div id="catalogGrid" class="catalog-grid"></div>
+            </section>
+        </div>
+
+        <div id="mod-contacto" class="module-view hidden">
+            <section class="standard-section">
+                <div class="section-header-center">
+                    <h2>Contacto</h2>
+                    <p>Estamos aquí para ayudarte. Contáctanos por cualquiera de nuestros medios</p>
+                </div>
+                <div class="contact-main-grid">
+                    <div class="contact-info-column">
+                        <h3>Información de Contacto</h3>
+                        <a href="https://wa.me/50577889893" target="_blank" class="info-card-row-link">
+                            <div class="info-card-row">
+                                <div class="info-row-icon"><i class="fab fa-whatsapp"></i></div>
+                                <div><strong>WhatsApp</strong><p>+505 7788 9893</p></div>
+                            </div>
+                        </a>
+                        <a href="tel:+50577889893" class="info-card-row-link">
+                            <div class="info-card-row">
+                                <div class="info-row-icon"><i class="fas fa-phone-alt"></i></div>
+                                <div><strong>Teléfono</strong><p>+505 7788 9893</p></div>
+                            </div>
+                        </a>
+                        <a href="mailto:publyfotos@gmail.com" class="info-card-row-link">
+                            <div class="info-card-row">
+                                <div class="info-row-icon"><i class="far fa-envelope"></i></div>
+                                <div><strong>Correo Electrónico</strong><p>publyfotos@gmail.com</p></div>
+                            </div>
+                        </a>
+                        <a href="https://maps.google.com/?q=Estatua+Monseñor+Lezcano,+Managua" target="_blank" class="info-card-row-link">
+                            <div class="info-card-row">
+                                <div class="info-row-icon"><i class="fas fa-map-marker-alt"></i></div>
+                                <div><strong>Dirección</strong><p>Monseñor Lezcano, Managua</p></div>
+                            </div>
+                        </a>
+                        <div class="info-card-row">
+                            <div class="info-row-icon"><i class="far fa-clock"></i></div>
+                            <div><strong>Horario de Atención</strong><p>Lunes a Viernes: 8:00 AM - 5:30 PM<br>Sábados: 8:00 AM - 12:00 MD</p></div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-column">
+                        <h3>Envíanos un Mensaje</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="contactName">Nombre:</label>
+                                <input type="text" id="contactName" placeholder="Tu nombre completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPhone">Número de teléfono:</label>
+                                <input type="tel" id="contactPhone" placeholder="Ej: +505 7788 9893" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactEmail">Correo electrónico:</label>
+                                <input type="email" id="contactEmail" placeholder="ejemplo@correo.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactClientType">Tipo de cliente:</label>
+                                <select id="contactClientType" required>
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                    <option value="Dueño de negocio">Dueño de negocio</option>
+                                    <option value="Emprendedor">Emprendedor</option>
+                                    <option value="Persona corriente">Persona corriente</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactMessage">Mensaje:</label>
+                                <textarea id="contactMessage" rows="4" placeholder="Escribe tu consulta detallada aquí..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit-contact">Enviar Mensaje & Registrar</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="map-wrapper-section">
+                    <h3>Nuestra Ubicación</h3>
+                    <div class="iframe-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.4417740303884!2d-86.2981859!3d12.150298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71579934959091%3A0x583bee145f825f53!2sPublyFotos!5e0!3m2!1ses!2sni!4v1781317581904!5m2!1ses!2sni" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>PublyFotos</h4>
+                <p>Tu socio estratégico en publicidad, impresiones de alta calidad y soluciones visuales integrales.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/publyfotos/?locale=es_LA" target="_blank" title="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@publyfotosnic" target="_blank" title="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/50577889893" target="_blank" title="Escríbenos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#" onclick="switchModule('inicio')">Inicio</a></li>
+                    <li><a href="#" onclick="switchModule('nosotros')">Sobre Nosotros</a></li>
+                    <li><a href="#" onclick="switchModule('servicios')">Servicios</a></li>
+                    <li><a href="#" onclick="switchModule('catalogo')">Catálogo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Directo</h4>
+                <ul class="footer-contact-interactive-list">
+                    <li><a href="tel:+50577889893"><i class="fas fa-phone-alt"></i> +505 7788 9893</a></li>
+                    <li><a href="mailto:publyfotos@gmail.com"><i class="far fa-envelope"></i> publyfotos@gmail.com</a></li>
+                    <li><a href="https://maps.google.com/?q=Estatua+Monseñor+Lezcano,+Managua" target="_blank"><i class="fas fa-map-marker-alt"></i> Monseñor Lezcano, Managua</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col footer-newsletter-column">
+                <h4>Infórmate con nosotros</h4>
+                <p class="newsletter-subtext">Suscríbete y recibe nuestras mejores promociones en exclusiva de forma periódica.</p>
+                <form id="footerSubscribeForm" class="footer-subscribe-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" id="newsletterEmail" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn-newsletter-submit" title="Suscribirme"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div id="newsletterSuccess" class="newsletter-toast hidden"><i class="fas fa-check-circle"></i> ¡Te has suscrito con éxito!</div>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 PyF Publicidad & Fotografía. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> Acceso Administrativo</h3>
+                <button class="modal-close-btn" id="closeLoginModalBtn">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="adminUser">Usuario:</label>
+                        <input type="text" id="adminUser" placeholder="Introduce tu usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPass">Contraseña:</label>
+                        <input type="password" id="adminPass" placeholder="Introduce la contraseña" required>
+                    </div>
+                    <div id="loginErrorMsg" class="login-error hidden">Usuario o contraseña incorrectos.</div>
+                    <button type="submit" class="btn-modal-login">Ingresar al sistema</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentProducts = [];
+        let activeFilter = "Todos";
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initNavigation();
+            initLogin();
+            initCatalogAndAdmin();
+            initContactForm();
+            initFooterNewsletter();
+        });
+
+        function switchModule(modId, tabElement = null) {
+            document.querySelectorAll('.module-view').forEach(view => view.classList.add('hidden'));
+            const selectedModule = document.getElementById(`mod-${modId}`);
+            if (selectedModule) selectedModule.classList.remove('hidden');
+
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            if (tabElement) {
+                tabElement.classList.add('active');
+            } else {
+                const targetLink = Array.from(document.querySelectorAll('.nav-link'))
+                    .find(link => link.getAttribute('onclick').includes(`'${modId}'`));
+                if (targetLink) targetLink.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            const navMenu = document.getElementById('navMenu');
+            if(navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+            }
+        }
+
+        function initNavigation() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            menuToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('open');
+            });
+        }
+
+        function initLogin() {
+            const openBtn = document.getElementById('openLoginModalBtn');
+            const closeBtn = document.getElementById('closeLoginModalBtn');
+            const modal = document.getElementById('loginModal');
+            const loginForm = document.getElementById('loginForm');
+            const errorMsg = document.getElementById('loginErrorMsg');
+            const adminBadge = document.getElementById('adminBadge');
+            const adminPanel = document.getElementById('adminPanel');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            if (localStorage.getItem('pyf_admin_logged') === 'true') {
+                showAdminViews();
+            }
+
+            openBtn.addEventListener('click', () => {
+                errorMsg.classList.add('hidden');
+                loginForm.reset();
+                modal.classList.remove('hidden');
+            });
+
+            closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+            modal.addEventListener('click', (e) => { if(e.target === modal) modal.classList.add('hidden'); });
+
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const user = document.getElementById('adminUser').value.trim();
+                const pass = document.getElementById('adminPass').value;
+                
+                if (user === 'fotos' && pass === '12345678') { 
+                    localStorage.setItem('pyf_admin_logged', 'true');
+                    showAdminViews();
+                    modal.classList.add('hidden');
+                } else {
+                    errorMsg.classList.remove('hidden');
+                }
+            });
+
+            logoutBtn.addEventListener('click', () => {
+                localStorage.removeItem('pyf_admin_logged');
+                adminBadge.classList.add('hidden');
+                adminPanel.classList.add('hidden');
+                openBtn.classList.remove('hidden');
+                renderCatalog();
+            });
+
+            function showAdminViews() {
+                adminBadge.classList.remove('hidden');
+                adminPanel.classList.remove('hidden');
+                openBtn.classList.add('hidden');
+                renderSubscribersTable();
+                renderPromoEmailsTable();
+                renderCatalog();
+            }
+        }
+
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            if(!contactForm) return;
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const nameVal = document.getElementById('contactName').value.trim();
+                const phoneVal = document.getElementById('contactPhone').value.trim();
+                const emailVal = document.getElementById('contactEmail').value.trim();
+                const clientTypeVal = document.getElementById('contactClientType').value;
+                const msgVal = document.getElementById('contactMessage').value.trim();
+                
+                if(nameVal && phoneVal && emailVal && clientTypeVal && msgVal) {
+                    let subs = JSON.parse(localStorage.getItem('pyf_subscribers')) || [];
+                    
+                    subs.push({
+                        date: new Date().toLocaleString(),
+                        name: nameVal,
+                        phone: phoneVal,
+                        email: emailVal,
+                        clientType: clientTypeVal,
+                        message: msgVal
+                    });
+                    localStorage.setItem('pyf_subscribers', JSON.stringify(subs));
+                    renderSubscribersTable();
+
+                    const emailSubject = encodeURIComponent(`Nueva Consulta Web de ${nameVal} (${clientTypeVal})`);
+                    const emailBody = encodeURIComponent(
+                        `Hola equipo de PublyFotos,\n\n` +
+                        `Has recibido un nuevo mensaje desde el formulario web:\n\n` +
+                        `• Nombre: ${nameVal}\n` +
+                        `• Teléfono: ${phoneVal}\n` +
+                        `• Correo: ${emailVal}\n` +
+                        `• Tipo de Cliente: ${clientTypeVal}\n` +
+                        `• Mensaje: ${msgVal}\n\n` +
+                        `Enviado el: ${new Date().toLocaleString()}`
+                    );
+                    
+                    window.location.href = `mailto:publyfotos@gmail.com?subject=${emailSubject}&body=${emailBody}`;
+                    contactForm.reset();
+                }
+            });
+        }
+
+        function initFooterNewsletter() {
+            const form = document.getElementById('footerSubscribeForm');
+            const input = document.getElementById('newsletterEmail');
+            const toast = document.getElementById('newsletterSuccess');
+            
+            if(!form) return;
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const emailVal = input.value.trim();
+                if(emailVal) {
+                    let promoEmails = JSON.parse(localStorage.getItem('pyf_promo_emails')) || [];
+                    
+                    // Validar si el email ya existe para evitar duplicados molestos
+                    if(!promoEmails.some(item => item.email.toLowerCase() === emailVal.toLowerCase())) {
+                        promoEmails.push({
+                            date: new Date().toLocaleString(),
+                            email: emailVal,
+                            status: 'Activo (Exclusivo)'
+                        });
+                        localStorage.setItem('pyf_promo_emails', JSON.stringify(promoEmails));
+                        renderPromoEmailsTable();
+                    }
+
+                    toast.classList.remove('hidden');
+                    input.value = "";
+                    setTimeout(() => { toast.classList.add('hidden'); }, 4000);
+                }
+            });
+        }
+
+        function renderSubscribersTable() {
+            const tbody = document.getElementById('subscribersTableBody');
+            if(!tbody) return;
+            const subs = JSON.parse(localStorage.getItem('pyf_subscribers')) || [];
+            if(subs.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center; color:#718096; padding:1.5rem;">No hay consultas o mensajes almacenados por el momento.</td></tr>`;
+                return;
+            }
+            
+            tbody.innerHTML = subs.map(s => `
+                <tr>
+                    <td>${s.date}</td>
+                    <td><strong>${s.name}</strong><br><small style="color:#718096;">${s.clientType}</small></td>
+                    <td>${s.phone}</td>
+                    <td><a href="mailto:${s.email}" style="color:#2b4c8c; text-decoration:none; font-weight:600;">${s.email}</a></td>
+                    <td>${s.message}</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderPromoEmailsTable() {
+            const tbody = document.getElementById('promoEmailsTableBody');
+            if(!tbody) return;
+            const emails = JSON.parse(localStorage.getItem('pyf_promo_emails')) || [];
+            if(emails.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="3" style="text-align:center; color:#718096; padding:1.5rem;">Nadie se ha suscrito aún al boletín de promociones del footer.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = emails.map(e => `
+                <tr>
+                    <td>${e.date}</td>
+                    <td><a href="mailto:${e.email}" style="color:#2b4c8c; text-decoration:none; font-weight:600; font-size:1rem;">${e.email}</a></td>
+                    <td><span style="background-color:#c6f6d5; color:#22543d; padding:0.25rem 0.6rem; border-radius:50px; font-size:0.8rem; font-weight:700;"><i class="fas fa-check"></i> ${e.status}</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function clearDataList(storageKey) {
+            const label = storageKey === 'pyf_subscribers' ? 'el historial de consultas' : 'la lista de correos suscritos';
+            if(confirm(`¿Estás completamente seguro de que deseas vaciar de forma permanente ${label}?`)) {
+                localStorage.removeItem(storageKey);
+                if(storageKey === 'pyf_subscribers') renderSubscribersTable();
+                if(storageKey === 'pyf_promo_emails') renderPromoEmailsTable();
+            }
+        }
+
+        function initCatalogAndAdmin() {
+            fetch('data.json')
+                .then(res => res.json())
+                .then(data => {
+                    const localProds = localStorage.getItem('pyf_products');
+                    if (localProds) {
+                        currentProducts = JSON.parse(localProds);
+                    } else {
+                        currentProducts = data.map(item => ({
+                            id: item.id,
+                            title: item.title,
+                            description: item.desc,
+                            price: item.price,
+                            discount: 0,
+                            category: item.category,
+                            image: "",
+                            icon: getCategoryIcon(item.category)
+                        }));
+                        localStorage.setItem('pyf_products', JSON.stringify(currentProducts));
+                    }
+                    renderCatalog();
+                })
+                .catch(() => {
+                    const localProds = localStorage.getItem('pyf_products');
+                    if (localProds) currentProducts = JSON.parse(localProds);
+                    renderCatalog();
+                });
+        }
+
+        function getCategoryIcon(cat) {
+            if(cat === "Papelería") return "fa-file-alt";
+            if(cat === "Personalizados") return "fa-tshirt";
+            if(cat === "Gran formato") return "fa-flag";
+            if(cat === "Fotografía") return "fa-camera";
+            return "fa-box";
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById('catalogGrid');
+            if (!grid) return;
+
+            const isAdmin = localStorage.getItem('pyf_admin_logged') === 'true';
+            const filtered = currentProducts.filter(p => activeFilter === "Todos" || p.category === activeFilter);
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:3rem; color:#718096;">No se encontraron artículos en esta categoría.</div>`;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(p => {
+                const discountPct = parseInt(p.discount || 0, 10);
+                const finalPrice = p.price - (p.price * (discountPct / 100));
+                
+                const visualBox = p.image 
+                    ? `<div class="card-visual-box img-filled"><img src="${p.image}" alt="${p.title}"></div>`
+                    : `<div class="card-visual-box"><i class="fas ${p.icon || 'fa-box'}"></i></div>`;
+                
+                return `
+                    <div class="catalog-card ${discountPct > 0 ? 'has-discount-badge' : ''}">
+                        ${discountPct > 0 ? `<div class="discount-ribbon">-${discountPct}% OFF</div>` : ''}
+                        ${visualBox}
+                        <div class="card-body-content">
+                            <span class="card-cat-label">${p.category}</span>
+                            <h3>${p.title}</h3>
+                            <p class="card-description-text">${p.description || ''}</p>
+                            <div class="price-container-block">
+                                ${discountPct > 0 ? `<div class="card-old-price">C$ ${p.price.toFixed(2)}</div>` : ''}
+                                <div class="card-price-label">Precio: <strong>C$ ${finalPrice.toFixed(2)}</strong></div>
+                            </div>
+                            <div class="card-actions-row">
+                                <a href="https://wa.me/50577889893?text=Hola,%20deseo%20cotizar%20el%20producto:%20${encodeURIComponent(p.title)}" target="_blank" class="btn-card-wa">
+                                    <i class="fab fa-whatsapp"></i> Cotizar
+                                </a>
+                                ${isAdmin ? `
+                                    <button onclick="editProductInline(${p.id})" class="btn-card-edit" title="Editar Producto"><i class="fas fa-edit"></i></button>
+                                    <button onclick="deleteProductInline(${p.id})" class="btn-card-delete" title="Eliminar de forma permanente"><i class="fas fa-trash-alt"></i></button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            initAdminFormLogic();
+        }
+
+        function editProductInline(id) {
+            const p = currentProducts.find(prod => prod.id === id);
+            if (!p) return;
+            document.getElementById('prodId').value = p.id;
+            document.getElementById('prodTitle').value = p.title;
+            document.getElementById('prodPrice').value = p.price;
+            document.getElementById('prodDiscount').value = p.discount || 0;
+            document.getElementById('prodCategory').value = p.category;
+            document.getElementById('prodDescription').value = p.description || '';
+            document.getElementById('prodImageUrl').value = p.image || '';
+            
+            document.getElementById('adminPanelTitle').innerHTML = `<i class="fas fa-edit"></i> Modificando Producto: ${p.title}`;
+            document.getElementById('btnAdminSubmit').textContent = "Actualizar Cambios e Inventario";
+            document.getElementById('btnCancelEdit').classList.remove('hidden');
+            document.getElementById('adminPanel').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function deleteProductInline(id) {
+            if (confirm('¿Seguro que deseas eliminar este artículo del catálogo de forma permanente?')) {
+                currentProducts = currentProducts.filter(p => p.id !== id);
+                localStorage.setItem('pyf_products', JSON.stringify(currentProducts));
+                renderCatalog();
+            }
+        }
+
+        function resetAdminForm() {
+            document.getElementById('prodId').value = "";
+            document.getElementById('productForm').reset();
+            document.getElementById('adminPanelTitle').innerHTML = `<i class="fas fa-plus-circle"></i> Gestión de Inventario (Modo Administrador)`;
+            document.getElementById('btnAdminSubmit').textContent = "Guardar Producto";
+            document.getElementById('btnCancelEdit').classList.add('hidden');
+        }
+
+        function initAdminFormLogic() {
+            const form = document.getElementById('productForm');
+            if (!form) return;
+            
+            form.replaceWith(form.cloneNode(true));
+            const newForm = document.getElementById('productForm');
+
+            newForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const idVal = document.getElementById('prodId').value;
+                const title = document.getElementById('prodTitle').value.trim();
+                const price = parseFloat(document.getElementById('prodPrice').value);
+                const discount = parseInt(document.getElementById('prodDiscount').value || 0, 10);
+                const category = document.getElementById('prodCategory').value;
+                const description = document.getElementById('prodDescription').value.trim();
+                const image = document.getElementById('prodImageUrl').value.trim();
+
+                let products = JSON.parse(localStorage.getItem('pyf_products')) || [];
+
+                if (idVal) {
+                    const p = products.find(prod => prod.id === parseInt(idVal, 10));
+                    if (p) {
+                        p.title = title; p.price = price; p.discount = discount; p.category = category; p.description = description; p.image = image;
+                    }
+                } else {
+                    let icon = getCategoryIcon(category);
+                    products.push({ id: Date.now(), title, description, price, discount, category, image, icon });
+                }
+                localStorage.setItem('pyf_products', JSON.stringify(products));
+                currentProducts = products;
+                resetAdminForm();
+                renderCatalog();
+            });
+
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.replaceWith(tab.cloneNode(true));
+            });
+
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+                    activeFilter = e.target.getAttribute('data-filter');
+                    renderCatalog();
+                });
+            });
+        }
+    </script>
+</body>
+</html>

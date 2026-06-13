@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "title": "Lona 1.0 x 0.80 Mts",
+    "price": 600.00,
+    "category": "Lonas y banner",
+    "desc": "Medidas personalizadas a su requerimiento. Acabados de cortesía: Ojetes (para amarrar) o tubos PVC. Entrega en 2 días hábiles con diseño listo."
+  },
+  {
+    "id": 2,
+    "title": "Lona 80x60cm",
+    "price": 380.00,
+    "category": "Lonas y banner",
+    "desc": "Acabados de cortesía incluidos: Ojetes y Tubos PVC (máximo 1.20Mts)."
+  },
+  {
+    "id": 3,
+    "title": "Lona 1.0 x 0.60 Mts",
+    "price": 480.00,
+    "category": "Lonas y banner",
+    "desc": "Medidas configurables. Acabados de ojetes o tubos incluidos por la empresa."
+  },
+  {
+    "id": 4,
+    "title": "Lona 1.0 x 1.0 Mt",
+    "price": 650.00,
+    "category": "Lonas y banner",
+    "desc": "Lona cuadrada ideal para intemperie. Despacho rápido en Managua."
+  },
+  {
+    "id": 5,
+    "title": "Lona 80x50cm",
+    "price": 320.00,
+    "category": "Lonas y banner",
+    "desc": "Formato estándar publicitario económico."
+  },
+  {
+    "id": 6,
+    "title": "Lona 100 x 50cm",
+    "price": 400.00,
+    "category": "Lonas y banner",
+    "desc": "Acabados premium con ojales metálicos perimetrales."
+  },
+  {
+    "id": 7,
+    "title": "Roll Up Publicitario Estructural",
+    "price": 2000.00,
+    "category": "Lonas y banner",
+    "desc": "Ideal para ferias, eventos corporativos u oficinas. Diseño gráfico de cortesía. 3 días de anticipación."
+  },
+  {
+    "id": 8,
+    "title": "Llaveros Acrílicos Rectangulares",
+    "price": 50.00,
+    "category": "Llaveros",
+    "desc": "Llaveros acrílicos con impresión nítida por ambas caras. Descuentos por volumen."
+  },
+  {
+    "id": 9,
+    "title": "Llaveros MDF Madera",
+    "price": 100.00,
+    "category": "Llaveros",
+    "desc": "Llaveros de madera MDF cortados con láser. Durabilidad garantizada."
+  },
+  {
+    "id": 10,
+    "title": "Llavero de Acero Ambas Caras",
+    "price": 200.00,
+    "category": "Llaveros",
+    "desc": "Modelos disponibles: Redondo, corazón, rectangular, cuadrado, placa militar, huesito."
+  },
+  {
+    "id": 11,
+    "title": "Llavero Lanyard Impreso",
+    "price": 120.00,
+    "category": "Llaveros",
+    "desc": "Ideal para portacarnets o llaves corporativas. Full color personalizable."
+  },
+  {
+    "id": 12,
+    "title": "Llavero Giratorio Metálico",
+    "price": 200.00,
+    "category": "Llaveros",
+    "desc": "Cuerpo giratorio de acero quirúrgico para fotos dobles."
+  },
+  {
+    "id": 13,
+    "title": "Fotos Carnet ID Pack",
+    "price": 100.00,
+    "category": "Fotocopias e impresiones",
+    "desc": "4 fotos carnet C$100. Opciones para título, pasaporte y diploma disponibles en mostrador."
+  }
+]
